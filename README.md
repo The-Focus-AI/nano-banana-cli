@@ -2,6 +2,35 @@
 
 A flexible tool that uses Google's Gemini API to process images with customizable prompts. Perfect for batch processing slides, photos, and other images with AI-powered transformations.
 
+## Example: Slide Extraction
+
+Transform photos of slides into clean, readable images automatically:
+
+<table>
+<tr>
+<td width="50%"><b>Before</b></td>
+<td width="50%"><b>After</b></td>
+</tr>
+<tr>
+<td><img src="docs/example-before.jpg" alt="Original slide photo 1"></td>
+<td><img src="docs/example-after.jpg" alt="Extracted slide 1"></td>
+</tr>
+<tr>
+<td><img src="docs/example-before-2.jpg" alt="Original slide photo 2"></td>
+<td><img src="docs/example-after-2.jpg" alt="Extracted slide 2"></td>
+</tr>
+<tr>
+<td><img src="docs/example-before-3.jpg" alt="Original slide photo 3"></td>
+<td><img src="docs/example-after-3.jpg" alt="Extracted slide 3"></td>
+</tr>
+</table>
+
+The slide-extractor prompt automatically:
+- Detects and extracts the slide from the photo
+- Corrects perspective distortion
+- Enhances contrast and readability
+- Removes background clutter
+
 ## Features
 
 - Processes images through Google Gemini AI with customizable prompts
@@ -146,7 +175,14 @@ node nano-banana.js --file input.jpg --prompt-file prompts/slide-extractor.md --
 ├── prompts/           # Prompt templates
 │   └── slide-extractor.md  # Default slide extraction prompt
 ├── input/            # Place images here (contents ignored by git)
-└── output/           # Processed images appear here (contents ignored by git)
+├── output/           # Processed images appear here (contents ignored by git)
+└── docs/             # Documentation and example images
+    ├── example-before.jpg
+    ├── example-after.jpg
+    ├── example-before-2.jpg
+    ├── example-after-2.jpg
+    ├── example-before-3.jpg
+    └── example-after-3.jpg
 ```
 
 ## Environment Variables

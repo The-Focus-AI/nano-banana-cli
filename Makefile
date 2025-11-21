@@ -36,8 +36,15 @@ process: install
 	fi
 	@bash -c 'for file in $(INPUT_DIR)/*; do \
 		if [ -f "$$file" ] && [[ "$$file" != *".gitkeep" ]]; then \
-			echo "Processing $$file..."; \
-			node nano-banana.js --file "$$file" --prompt-file "$(PROMPT_FILE)"; \
+			base=$$(basename "$$file"); \
+			name="$${base%.*}"; \
+			output="output/$${name}-gemini-edited.jpg"; \
+			if [ -f "$$output" ]; then \
+				echo "Skipping $$file (already processed)"; \
+			else \
+				echo "Processing $$file..."; \
+				node nano-banana.js --file "$$file" --prompt-file "$(PROMPT_FILE)"; \
+			fi \
 		fi \
 	done'
 
