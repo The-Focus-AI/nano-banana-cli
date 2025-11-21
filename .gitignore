@@ -1,0 +1,34 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Node dependencies
+node_modules/
+
+# Output directory - ignore contents but keep directory
+output/*
+!output/.gitkeep
+
+# Input directory - ignore contents but keep directory
+input/*
+!input/.gitkeep
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Misc
+notes.nd

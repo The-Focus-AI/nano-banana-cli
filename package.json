@@ -1,0 +1,13 @@
+{
+  "name": "nano-banana-processor",
+  "version": "1.0.0",
+  "description": "Image processing with Gemini API",
+  "main": "nano-banana.js",
+  "type": "module",
+  "scripts": {
+    "start": "node nano-banana.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.30.0"
+  }
+}
