@@ -8,6 +8,7 @@
     "start": "node nano-banana.js"
   },
   "dependencies": {
-    "@google/genai": "^1.30.0"
+    "@google/genai": "^1.30.0",
+    "dotenv": "^17.2.3"
   }
 }
