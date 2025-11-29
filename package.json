@@ -1,11 +1,27 @@
 {
-  "name": "nano-banana-processor",
+  "name": "nano-banana",
   "version": "1.0.0",
-  "description": "Image processing with Gemini API",
-  "main": "nano-banana.js",
+  "description": "CLI for image generation and editing with Google Gemini",
   "type": "module",
+  "bin": {
+    "nano-banana": "./nano-banana.js"
+  },
+  "files": [
+    "nano-banana.js"
+  ],
   "scripts": {
     "start": "node nano-banana.js"
+  },
+  "keywords": [
+    "gemini",
+    "image",
+    "ai",
+    "generation",
+    "cli"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@google/genai": "^1.30.0",

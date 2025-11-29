@@ -34,16 +34,17 @@ process: install
 		ls -1 $(PROMPTS_DIR)/*.md 2>/dev/null | xargs -n1 basename | sed 's/.md$$//' || echo "  (none)"; \
 		exit 1; \
 	fi
+	@mkdir -p output
 	@bash -c 'for file in $(INPUT_DIR)/*; do \
 		if [ -f "$$file" ] && [[ "$$file" != *".gitkeep" ]]; then \
 			base=$$(basename "$$file"); \
 			name="$${base%.*}"; \
-			output="output/$${name}-gemini-edited.jpg"; \
+			output="output/$${name}-edited.png"; \
 			if [ -f "$$output" ]; then \
 				echo "Skipping $$file (already processed)"; \
 			else \
 				echo "Processing $$file..."; \
-				node nano-banana.js --file "$$file" --prompt-file "$(PROMPT_FILE)"; \
+				nano-banana --file "$$file" --prompt-file "$(PROMPT_FILE)" --output "$$output"; \
 			fi \
 		fi \
 	done'
