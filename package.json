@@ -1,23 +1,28 @@
 {
-  "name": "nano-banana",
+  "name": "@focus-ai/nano-banana",
   "version": "1.0.0",
   "description": "CLI for image generation and editing with Google Gemini",
   "type": "module",
   "bin": {
-    "nano-banana": "./nano-banana.js"
+    "nano-banana": "./cli.ts"
   },
   "files": [
-    "nano-banana.js"
+    "cli.ts",
+    "skills/**/*",
+    ".claude-plugin/**/*"
   ],
   "scripts": {
-    "start": "node nano-banana.js"
+    "start": "tsx cli.ts",
+    "dev": "tsx watch cli.ts"
   },
   "keywords": [
     "gemini",
     "image",
     "ai",
     "generation",
-    "cli"
+    "cli",
+    "claude-code",
+    "plugin"
   ],
   "license": "MIT",
   "engines": {
@@ -25,6 +30,7 @@
   },
   "dependencies": {
     "@google/genai": "^1.30.0",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "tsx": "^4.21.0"
   }
 }
