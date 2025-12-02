@@ -26,10 +26,10 @@ CLI and Claude Code plugin for AI image generation and editing with Google Gemin
 
 ```bash
 # Run directly with npx (auto-downloads dependencies)
-npx @focus-ai/nano-banana --help
+npx @the-focus-ai/nano-banana --help
 
 # Or install globally
-npm install -g @focus-ai/nano-banana
+npm install -g @the-focus-ai/nano-banana
 ```
 
 ## Quick Start

@@ -267,13 +267,13 @@ After generating, refine with editing:
 
 ```bash
 # Original generation
-npx @focus-ai/nano-banana "mountain sunset" --output v1.png
+npx @the-focus-ai/nano-banana "mountain sunset" --output v1.png
 
 # Edit to improve
-npx @focus-ai/nano-banana "make the sunset colors more vibrant and dramatic" --file v1.png --output v2.png
+npx @the-focus-ai/nano-banana "make the sunset colors more vibrant and dramatic" --file v1.png --output v2.png
 
 # Further refinement
-npx @focus-ai/nano-banana "add a subtle mist in the valley" --file v2.png --output v3.png
+npx @the-focus-ai/nano-banana "add a subtle mist in the valley" --file v2.png --output v3.png
 ```
 
 ---

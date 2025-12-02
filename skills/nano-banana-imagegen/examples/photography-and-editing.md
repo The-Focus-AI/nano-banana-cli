@@ -45,53 +45,53 @@ lighting, sharp details, professional real estate photography style.
 
 ```bash
 # Remove and replace background
-npx @focus-ai/nano-banana "Remove the background and replace with a clean gradient from light blue to white" --file portrait.jpg
+npx @the-focus-ai/nano-banana "Remove the background and replace with a clean gradient from light blue to white" --file portrait.jpg
 
 # Add environmental context
-npx @focus-ai/nano-banana "Replace the plain background with a professional office setting, keeping the person unchanged" --file headshot.jpg
+npx @the-focus-ai/nano-banana "Replace the plain background with a professional office setting, keeping the person unchanged" --file headshot.jpg
 ```
 
 ### Style Transfer
 
 ```bash
 # Convert to illustration
-npx @focus-ai/nano-banana "Transform this photograph into a watercolor painting style, preserving the composition and subjects" --file photo.jpg
+npx @the-focus-ai/nano-banana "Transform this photograph into a watercolor painting style, preserving the composition and subjects" --file photo.jpg
 
 # Add vintage effect
-npx @focus-ai/nano-banana "Apply a vintage 1970s film photography look with warm tones and slight grain" --file modern-photo.jpg
+npx @the-focus-ai/nano-banana "Apply a vintage 1970s film photography look with warm tones and slight grain" --file modern-photo.jpg
 ```
 
 ### Object Manipulation
 
 ```bash
 # Add elements
-npx @focus-ai/nano-banana "Add a hot air balloon floating in the sky in the upper right corner" --file landscape.jpg
+npx @the-focus-ai/nano-banana "Add a hot air balloon floating in the sky in the upper right corner" --file landscape.jpg
 
 # Remove elements
-npx @focus-ai/nano-banana "Remove the person in the background, fill naturally with the surrounding environment" --file street-photo.jpg
+npx @the-focus-ai/nano-banana "Remove the person in the background, fill naturally with the surrounding environment" --file street-photo.jpg
 
 # Modify elements
-npx @focus-ai/nano-banana "Change the car color from red to deep blue, keep everything else the same" --file car-photo.jpg
+npx @the-focus-ai/nano-banana "Change the car color from red to deep blue, keep everything else the same" --file car-photo.jpg
 ```
 
 ### Enhancement
 
 ```bash
 # Lighting adjustment
-npx @focus-ai/nano-banana "Enhance the lighting to create a warm golden hour effect, add subtle lens flare" --file outdoor-photo.jpg
+npx @the-focus-ai/nano-banana "Enhance the lighting to create a warm golden hour effect, add subtle lens flare" --file outdoor-photo.jpg
 
 # Color grading
-npx @focus-ai/nano-banana "Apply cinematic color grading with teal shadows and orange highlights" --file video-still.jpg
+npx @the-focus-ai/nano-banana "Apply cinematic color grading with teal shadows and orange highlights" --file video-still.jpg
 ```
 
 ### Compositing
 
 ```bash
 # Combine elements
-npx @focus-ai/nano-banana "Add realistic falling snow to this winter scene, varying sizes and depths" --file winter-street.jpg
+npx @the-focus-ai/nano-banana "Add realistic falling snow to this winter scene, varying sizes and depths" --file winter-street.jpg
 
 # Add text/graphics
-npx @focus-ai/nano-banana "Add a subtle watermark with the text 'Sample' diagonally across the image" --file product.jpg
+npx @the-focus-ai/nano-banana "Add a subtle watermark with the text 'Sample' diagonally across the image" --file product.jpg
 ```
 
 ## Scene Generation

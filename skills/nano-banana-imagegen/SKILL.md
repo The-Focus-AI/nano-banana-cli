@@ -10,22 +10,22 @@ Generate and edit images using Google's Gemini image models via the `nano-banana
 ## Prerequisites
 
 - `GEMINI_API_KEY` environment variable must be set
-- The CLI is installed via `npx @focus-ai/nano-banana`
+- The CLI is installed via `npx @the-focus-ai/nano-banana`
 
 ## Quick Reference
 
 ```bash
 # Generate a new image
-npx @focus-ai/nano-banana "a serene mountain landscape at sunset"
+npx @the-focus-ai/nano-banana "a serene mountain landscape at sunset"
 
 # Edit an existing image
-npx @focus-ai/nano-banana "add a hot air balloon to the sky" --file photo.jpg
+npx @the-focus-ai/nano-banana "add a hot air balloon to the sky" --file photo.jpg
 
 # Specify output path
-npx @focus-ai/nano-banana "a minimalist logo" --output logo.png
+npx @the-focus-ai/nano-banana "a minimalist logo" --output logo.png
 
 # Use a specific model
-npx @focus-ai/nano-banana "detailed illustration" --model gemini-2.0-flash-exp
+npx @the-focus-ai/nano-banana "detailed illustration" --model gemini-2.0-flash-exp
 ```
 
 ## Workflow
@@ -62,7 +62,7 @@ See [prompting-guide.md](prompting-guide.md) for comprehensive guidance.
 ### Step 3: Generate the Image
 
 ```bash
-npx @focus-ai/nano-banana "your detailed prompt here"
+npx @the-focus-ai/nano-banana "your detailed prompt here"
 ```
 
 Default output: `output/generated-<timestamp>.png`
@@ -79,13 +79,13 @@ If the result isn't right:
 ### Text-to-Image Generation
 
 ```bash
-npx @focus-ai/nano-banana "<prompt>"
+npx @the-focus-ai/nano-banana "<prompt>"
 ```
 
 ### Image Editing
 
 ```bash
-npx @focus-ai/nano-banana "<edit instruction>" --file <input-image>
+npx @the-focus-ai/nano-banana "<edit instruction>" --file <input-image>
 ```
 
 Edit instructions should describe the change:

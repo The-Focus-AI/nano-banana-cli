@@ -1,5 +1,5 @@
 {
-  "name": "@focus-ai/nano-banana",
+  "name": "@the-focus-ai/nano-banana",
   "version": "1.0.0",
   "description": "CLI for image generation and editing with Google Gemini",
   "type": "module",
