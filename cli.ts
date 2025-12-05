@@ -163,7 +163,7 @@ async function generateVideo(
     const imageBuffer = fs.readFileSync(inputImagePath);
     const mimeType = await getMimeType(inputImagePath);
     request.image = {
-      bytesBase64Encoded: imageBuffer.toString("base64"),
+      imageBytes: imageBuffer.toString("base64"),
       mimeType: mimeType,
     };
   }
@@ -175,9 +175,11 @@ async function generateVideo(
         const imageBuffer = fs.readFileSync(refPath);
         const mimeType = await getMimeType(refPath);
         return {
-          bytesBase64Encoded: imageBuffer.toString("base64"),
-          mimeType: mimeType,
-          type: "asset" as const,
+          referenceImage: {
+            imageBytes: imageBuffer.toString("base64"),
+            mimeType: mimeType,
+          },
+          referenceType: "REFERENCE_TYPE_STYLE",
         };
       })
     );
@@ -208,20 +210,37 @@ async function generateVideo(
   return operation.response.generatedVideos[0].video;
 }
 
+interface Video {
+  uri?: string;
+  videoBytes?: string;
+  mimeType?: string;
+}
+
 async function downloadVideo(
   ai: GoogleGenAI,
-  videoUri: string,
+  video: Video,
   outputPath: string
 ): Promise<void> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  await (ai as any).files.download({
-    file: videoUri,
-    downloadPath: outputPath,
-  });
+  if (video.videoBytes) {
+    // Video bytes are provided directly (base64 encoded)
+    const buffer = Buffer.from(video.videoBytes, 'base64');
+    fs.writeFileSync(outputPath, buffer);
+  } else if (video.uri) {
+    // Download from URI
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await (ai as any).files.download({
+      file: video.uri,
+      downloadPath: outputPath,
+    });
+  } else {
+    throw new Error("Video has neither videoBytes nor uri");
+  }
 
   // Save the URI alongside the video file for potential scene extension
-  const uriFilePath = outputPath.replace(/\.(mp4|mov)$/i, '.uri');
-  fs.writeFileSync(uriFilePath, videoUri, 'utf-8');
+  if (video.uri) {
+    const uriFilePath = outputPath.replace(/\.(mp4|mov)$/i, '.uri');
+    fs.writeFileSync(uriFilePath, video.uri, 'utf-8');
+  }
 }
 
 async function main(): Promise<void> {
@@ -409,6 +428,29 @@ async function main(): Promise<void> {
       console.error("Error: Maximum 3 reference images allowed");
       process.exit(1);
     }
+
+    // Validate resolution/duration constraints
+    // 1080p only supports 8 seconds
+    if (resolution === "1080p" && duration !== 8) {
+      console.error(`Error: 1080p resolution only supports 8-second videos (got ${duration}s)`);
+      console.error("  Use --resolution 720p for shorter videos, or --duration 8 for 1080p");
+      process.exit(1);
+    }
+
+    // Reference images require 8 seconds
+    if (referenceImages.length > 0 && duration !== 8) {
+      console.error(`Error: Reference images require 8-second videos (got ${duration}s)`);
+      console.error("  Use --duration 8 when using --reference");
+      process.exit(1);
+    }
+
+    // Video extension requires 8 seconds
+    if (extendVideoPath && duration !== 8) {
+      console.error(`Error: Video extension requires 8-second videos (got ${duration}s)`);
+      console.error("  Use --duration 8 when using --extend");
+      process.exit(1);
+    }
+
     const selectedVideoModel =
       videoModel || (videoFast ? FAST_VIDEO_MODEL : DEFAULT_VIDEO_MODEL);
 
@@ -465,7 +507,7 @@ async function main(): Promise<void> {
     }
 
     try {
-      const videoUri = await generateVideo(
+      const video = await generateVideo(
         ai,
         promptText,
         videoConfig,
@@ -500,7 +542,7 @@ async function main(): Promise<void> {
       }
 
       console.log("Downloading video...");
-      await downloadVideo(ai, videoUri, outputPath);
+      await downloadVideo(ai, video as Video, outputPath);
       console.log(`Video saved: ${outputPath}`);
     } catch (error) {
       console.error("Error generating video:", error);
@@ -618,12 +660,16 @@ VIDEO OPTIONS:
   --video-model <name> Veo model (default: ${DEFAULT_VIDEO_MODEL})
   --video-fast         Use ${FAST_VIDEO_MODEL} (cheaper, faster)
   --duration <sec>     Duration: 4, 6, or 8 seconds (default: 8)
+                       Note: 1080p requires 8s; 720p allows 4/6/8s
   --aspect <ratio>     16:9 (landscape) or 9:16 (portrait) (default: 16:9)
   --resolution <res>   720p or 1080p (default: 1080p)
+                       Note: 720p allows shorter durations (4s, 6s)
   --audio              Generate synchronized audio (default)
   --no-audio           Disable audio generation (saves cost)
   --reference <image>  Reference image for character consistency (max 3)
+                       Note: Requires 8s duration
   --extend <video>     Extend a previously generated video (max 20 extensions)
+                       Note: Requires 8s duration
   --seed <number>      Seed for reproducibility
 
 COMMON OPTIONS:
