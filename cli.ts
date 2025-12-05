@@ -136,8 +136,9 @@ async function generateVideo(
       aspectRatio: config.aspectRatio,
       durationSeconds: config.duration,
       resolution: config.resolution,
-      generateAudio: config.generateAudio,
-      personGeneration: config.personGeneration || "dont_allow",
+      // Note: generateAudio and personGeneration not supported in Gemini API yet
+      // generateAudio: config.generateAudio,
+      // personGeneration: config.personGeneration || "dont_allow",
     },
   };
 

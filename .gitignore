@@ -5,6 +5,7 @@
 
 # Node dependencies
 node_modules/
+.npm-cache
 
 # Output directory - ignore contents but keep directory
 output/*

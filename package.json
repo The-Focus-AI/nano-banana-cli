@@ -1,6 +1,6 @@
 {
   "name": "@the-focus-ai/nano-banana",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CLI for image generation and editing with Google Gemini",
   "type": "module",
   "bin": {
@@ -14,7 +14,9 @@
   ],
   "scripts": {
     "start": "tsx cli.ts",
-    "dev": "tsx watch cli.ts"
+    "dev": "tsx watch cli.ts",
+    "test": "./test.sh",
+    "test:api": "./test.sh --with-api"
   },
   "keywords": [
     "gemini",

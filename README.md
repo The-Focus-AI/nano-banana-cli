@@ -1,6 +1,6 @@
 # nano-banana
 
-CLI and Claude Code plugin for AI image generation and editing with Google Gemini.
+CLI and Claude Code plugin for AI image generation, editing, and video generation with Google Gemini and Veo.
 
 ## Examples
 
