@@ -1,7 +1,7 @@
 {
-  "name": "nano-banana-imagegen",
+  "name": "nano-banana",
   "version": "1.0.0",
-  "description": "Generate and edit images using Google Gemini image models. Provides a skill for AI image generation and editing workflows.",
+  "description": "Generate images and videos using Google Gemini and Veo models. Provides skills for AI image generation, image editing, text-to-video, and image-to-video workflows.",
   "author": {
     "name": "Focus.AI",
     "url": "https://thefocus.ai"
@@ -10,9 +10,13 @@
   "license": "MIT",
   "keywords": [
     "gemini",
+    "veo",
     "image-generation",
     "image-editing",
-    "ai-art",
+    "video-generation",
+    "text-to-video",
+    "image-to-video",
+    "ai-media",
     "google-ai"
   ]
 }

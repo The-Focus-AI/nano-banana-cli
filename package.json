@@ -1,6 +1,6 @@
 {
   "name": "@the-focus-ai/nano-banana",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "CLI for image generation and editing with Google Gemini",
   "type": "module",
   "bin": {
