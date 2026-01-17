@@ -109,12 +109,14 @@ This package includes a Claude Code plugin with the `nano-banana-imagegen` skill
 ### Install the Plugin
 
 ```bash
-# Add the marketplace (if not already added)
-/plugin marketplace add The-Focus-AI/nano-banana-cli
+# Add the Focus marketplace (if not already added)
+/plugin marketplace add The-Focus-AI/claude-marketplace
 
 # Install the plugin
-/plugin install nano-banana-imagegen@The-Focus-AI
+/plugin install nano-banana@focus-marketplace
 ```
+
+Then restart Claude Code.
 
 ### Use with Claude
 
