@@ -84,8 +84,8 @@ Video generation is significantly more expensive than images:
 
 | Model | Cost per Second | 8-Second Video |
 |-------|-----------------|----------------|
-| `veo-3.1-generate-preview` | $0.50-0.75 | $4-6 |
-| `veo-3.1-fast-generate-preview` | $0.10-0.15 | $0.80-1.20 |
+| `veo-3.1-generate-001` | $0.40 | $3.20 |
+| `veo-3.1-fast-generate-001` | $0.15 | $1.20 |
 
 **Development workflow:**
 1. Iterate with `--video-fast --no-audio` (cheapest)
@@ -132,11 +132,11 @@ The motion description should describe how the image should animate:
 | Option | Description | Default |
 |--------|-------------|---------|
 | `--video` | Enable video mode | (required) |
-| `--video-model <name>` | Veo model to use | veo-3.1-generate-preview |
+| `--video-model <name>` | Veo model to use | veo-3.1-generate-001 |
 | `--video-fast` | Use fast/cheap model | (premium model) |
 | `--duration <sec>` | 4, 6, or 8 seconds | 8 |
 | `--aspect <ratio>` | 16:9 or 9:16 | 16:9 |
-| `--resolution <res>` | 720p or 1080p | 1080p |
+| `--resolution <res>` | 720p, 1080p, or 4K | 1080p |
 | `--audio` | Generate audio | (enabled) |
 | `--no-audio` | Disable audio | - |
 | `--seed <number>` | Reproducibility seed | (random) |
@@ -248,13 +248,13 @@ When creating multiple related videos:
 ## Cost Optimization
 
 ```bash
-# Development (cheapest): ~$0.80 per video
+# Development (cheapest): ~$1.20 per video
 nano-banana --video "test prompt" --video-fast --no-audio --resolution 720p
 
 # Testing with audio: ~$1.20 per video
 nano-banana --video "test prompt" --video-fast
 
-# Production quality: ~$6 per video
+# Production quality: ~$3.20 per video
 nano-banana --video "final prompt" --resolution 1080p
 ```
 

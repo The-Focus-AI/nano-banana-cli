@@ -56,8 +56,8 @@ nano-banana <prompt> [options]
 Options:
   --file <image>       Input image to edit (optional, omit for text-to-image)
   --output <file>      Output file path (default: output/generated-<timestamp>.png)
-  --model <name>       Gemini model to use (default: nano-banana-pro-preview)
-  --flash              Use gemini-2.0-flash model (faster)
+  --model <name>       Gemini model to use (default: gemini-3.1-flash-image-preview)
+  --flash              Use gemini-2.5-flash-image model (faster)
   --prompt-file <path> Read prompt from file instead of argument
   --list-models        List all available Gemini models
   --help, -h           Show this help message

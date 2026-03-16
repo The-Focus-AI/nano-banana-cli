@@ -17,8 +17,8 @@ import { estimateVideoCost, formatCostWarning } from "./lib/cost.js";
 
 dotenv.config({ quiet: true } as dotenv.DotenvConfigOptions);
 
-const DEFAULT_MODEL = "nano-banana-pro-preview";
-const FLASH_MODEL = "gemini-2.0-flash";
+const DEFAULT_MODEL = "gemini-3.1-flash-image-preview";
+const FLASH_MODEL = "gemini-2.5-flash-image";
 
 // Polling configuration
 const POLL_INTERVAL_MS = 10_000; // 10 seconds
@@ -262,7 +262,7 @@ async function main(): Promise<void> {
   let videoFast = false;
   let duration: 4 | 6 | 8 = 8;
   let aspectRatio: "16:9" | "9:16" = "16:9";
-  let resolution: "720p" | "1080p" = "1080p";
+  let resolution: "720p" | "1080p" | "4K" = "1080p";
   let generateAudio = true;
   let seed: number | undefined;
   let extendVideoPath = "";
@@ -306,10 +306,10 @@ async function main(): Promise<void> {
       }
     } else if (args[i] === "--resolution") {
       const r = args[++i];
-      if (r === "720p" || r === "1080p") {
+      if (r === "720p" || r === "1080p" || r === "4K") {
         resolution = r;
       } else {
-        console.error("Error: --resolution must be 720p or 1080p");
+        console.error("Error: --resolution must be 720p, 1080p, or 4K");
         process.exit(1);
       }
     } else if (args[i] === "--audio") {
@@ -662,8 +662,8 @@ VIDEO OPTIONS:
   --duration <sec>     Duration: 4, 6, or 8 seconds (default: 8)
                        Note: 1080p requires 8s; 720p allows 4/6/8s
   --aspect <ratio>     16:9 (landscape) or 9:16 (portrait) (default: 16:9)
-  --resolution <res>   720p or 1080p (default: 1080p)
-                       Note: 720p allows shorter durations (4s, 6s)
+  --resolution <res>   720p, 1080p, or 4K (default: 1080p)
+                       Note: 4K only available on preview models
   --audio              Generate synchronized audio (default)
   --no-audio           Disable audio generation (saves cost)
   --reference <image>  Reference image for character consistency (max 3)

@@ -25,7 +25,7 @@ npx @the-focus-ai/nano-banana "add a hot air balloon to the sky" --file photo.jp
 npx @the-focus-ai/nano-banana "a minimalist logo" --output logo.png
 
 # Use a specific model
-npx @the-focus-ai/nano-banana "detailed illustration" --model gemini-2.0-flash-exp
+npx @the-focus-ai/nano-banana "detailed illustration" --model gemini-2.5-flash-image
 ```
 
 ## Workflow
@@ -101,7 +101,7 @@ Edit instructions should describe the change:
 | `--file <image>` | Input image for editing |
 | `--output <path>` | Custom output path |
 | `--model <name>` | Specific Gemini model |
-| `--flash` | Use gemini-2.0-flash (faster, simpler images) |
+| `--flash` | Use gemini-2.5-flash-image (faster, simpler images) |
 | `--prompt-file <path>` | Read prompt from file |
 | `--list-models` | Show available models |
 
@@ -169,7 +169,7 @@ modern and calming aesthetic."
 
 ### Poor quality results
 - Add more specific style guidance
-- Use a more capable model (`gemini-2.0-flash-exp`)
+- Use a more capable model (`gemini-2.5-flash-image`)
 - Be more explicit about what you want
 
 ### Image doesn't match description

@@ -9,15 +9,35 @@ interface ModelCost {
 }
 
 const MODEL_COSTS: Record<string, ModelCost> = {
-  "veo-3.1-generate-preview": {
-    perSecond: 0.5,
-    audioMultiplier: 1.5,
+  "veo-3.1-generate-001": {
+    perSecond: 0.4,
+    audioMultiplier: 1.0,
     name: "Veo 3.1 (Premium)",
   },
-  "veo-3.1-fast-generate-preview": {
-    perSecond: 0.1,
-    audioMultiplier: 1.5,
+  "veo-3.1-fast-generate-001": {
+    perSecond: 0.15,
+    audioMultiplier: 1.0,
     name: "Veo 3.1 Fast",
+  },
+  "veo-3.1-generate-preview": {
+    perSecond: 0.4,
+    audioMultiplier: 1.0,
+    name: "Veo 3.1 Preview (4K)",
+  },
+  "veo-3.1-fast-generate-preview": {
+    perSecond: 0.15,
+    audioMultiplier: 1.0,
+    name: "Veo 3.1 Fast Preview (4K)",
+  },
+  "veo-3.0-generate-001": {
+    perSecond: 0.4,
+    audioMultiplier: 1.0,
+    name: "Veo 3.0",
+  },
+  "veo-3.0-fast-generate-001": {
+    perSecond: 0.15,
+    audioMultiplier: 1.0,
+    name: "Veo 3.0 Fast",
   },
   "veo-2.0-generate-001": {
     perSecond: 0.35,
@@ -36,7 +56,7 @@ export interface CostEstimate {
 
 export function estimateVideoCost(config: VideoConfig): CostEstimate {
   const modelCost =
-    MODEL_COSTS[config.model] || MODEL_COSTS["veo-3.1-fast-generate-preview"];
+    MODEL_COSTS[config.model] || MODEL_COSTS["veo-3.1-fast-generate-001"];
 
   const perSecond = config.generateAudio
     ? modelCost.perSecond * modelCost.audioMultiplier

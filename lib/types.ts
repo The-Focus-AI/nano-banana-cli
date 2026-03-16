@@ -4,7 +4,7 @@ export interface VideoConfig {
   model: string;
   duration: 4 | 6 | 8;
   aspectRatio: "16:9" | "9:16";
-  resolution: "720p" | "1080p";
+  resolution: "720p" | "1080p" | "4K";
   generateAudio: boolean;
   negativePrompt?: string;
   seed?: number;
@@ -40,12 +40,16 @@ export interface ReferenceImage {
   type: "asset" | "style";
 }
 
-export const DEFAULT_VIDEO_MODEL = "veo-3.1-generate-preview";
-export const FAST_VIDEO_MODEL = "veo-3.1-fast-generate-preview";
+export const DEFAULT_VIDEO_MODEL = "veo-3.1-generate-001";
+export const FAST_VIDEO_MODEL = "veo-3.1-fast-generate-001";
 
 export const VIDEO_MODELS = [
+  "veo-3.1-generate-001",
+  "veo-3.1-fast-generate-001",
   "veo-3.1-generate-preview",
   "veo-3.1-fast-generate-preview",
+  "veo-3.0-generate-001",
+  "veo-3.0-fast-generate-001",
   "veo-2.0-generate-001",
 ] as const;
 
