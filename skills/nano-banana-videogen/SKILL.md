@@ -1,5 +1,5 @@
 ---
-name: Nano Banana Video Generation
+name: nano-banana-videogen
 description: Generate videos using Google Veo models via the nano-banana CLI. Use this skill when the user asks to create, generate, animate, or produce videos with AI. Supports text-to-video, image-to-video animation, dialogue with lip-sync, and scene extensions. Trigger on requests like "create a video", "animate this image", "make a video clip", "generate footage", "produce a short film", "add motion to this".
 ---
 

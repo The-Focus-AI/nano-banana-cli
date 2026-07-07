@@ -1,5 +1,5 @@
 ---
-name: Nano Banana Image Generation
+name: nano-banana-imagegen
 description: Generate and edit images using Google Gemini image models. Use this skill when the user asks to create, generate, make, or edit images with AI. Supports text-to-image, image editing, style transfer, and multi-image composition. Trigger on requests like "create an image", "generate a picture", "make me a logo", "edit this photo", "add X to this image".
 ---
 
